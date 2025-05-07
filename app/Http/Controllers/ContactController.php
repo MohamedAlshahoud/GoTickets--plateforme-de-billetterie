@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -12,22 +13,21 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    // Gérer la soumission du formulaire de contact
     public function submit(Request $request)
     {
-        // Validation des données du formulaire
-        $validatedData = $request->validate([
-            'nom' => 'required|max:255',
+        $validated = $request->validate([
+            'name' => 'required|min:3',
             'email' => 'required|email',
             'telephone' => 'nullable|string|max:20',
-            'sujet' => 'nullable|string|max:255',
+            'sujet' => 'required|string|max:100',
             'message' => 'required|min:10',
         ]);
 
-        // Traitement du formulaire (envoi d'email, enregistrement en DB, etc.)
-        // Exemple : \Mail::to($email)->send(new ContactFormMail($validatedData));
+        Mail::send('emails.contact', ['data' => $validated], function ($message) use ($validated) {
+            $message->to('alshahoudmohamed95@gmail.com')
+                    ->subject('Message du site : ' . $validated['sujet']);
+        });
 
-        // Retourner une réponse après traitement
-        return back()->with('success', 'Votre message a été envoyé avec succès !');
+        return redirect()->back()->with('success', 'Votre message a bien été envoyé !');
     }
 }

@@ -24,7 +24,7 @@
                 </div>
                 <div class="contact_text">
                     <span class="fw-bold">Adresse mail</span><br>
-                    <a href="mailto:contact@maison-medicale.com" class="contact-link text-decoration-none">contact@maison-medicale.com</a>
+                    <a href="mailto:contact@maison-medicale.com" class="contact-link text-decoration-none">contact@gotickets.com</a>
                 </div>
             </div>
         </div>
