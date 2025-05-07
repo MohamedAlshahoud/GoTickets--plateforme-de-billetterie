@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# GoTickets - Plateforme de billetterie pour événements locaux
 
+GoTickets est une application de billetterie en ligne permettant aux utilisateurs de découvrir, réserver et gérer des billets pour des événements locaux. Le site est conçu pour être simple, rapide et sécurisé, tout en offrant une interface fluide pour une meilleure expérience utilisateur.
+
+## Fonctionnalités principales
+- **Découverte d'événements locaux** : Explorez des événements dans votre région (concerts, festivals, conférences, etc.).
+- **Réservation de billets** : Achetez des billets directement sur la plateforme.
+- **Gestion de compte utilisateur** : Créez et gérez votre compte personnel pour suivre vos réservations et événements préférés.
+- **Authentification sécurisée** : Connexion et inscription avec une gestion sécurisée des sessions.
 
 
