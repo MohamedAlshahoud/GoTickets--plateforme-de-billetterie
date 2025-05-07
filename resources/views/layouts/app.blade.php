@@ -1,36 +1,103 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="fr" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTickets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">GoTickets</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="{{ url('/') }}">Accueil</a></li>
+                        <li class="nav-item">
+                            @if(Auth::check() && Auth::user()->role === 'admin')
+                                <a class="nav-link" href="{{ url('/dashboard') }}">Admin</a>
+                            @endif
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Événements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Mon Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="#" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="nav-link btn btn-link">Se déconnecter</button>
+                                </form>
+                            </li>
+                        @else
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Créer un compte</a></li>
+                        @endauth
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+    <main class="flex-grow-1 container py-4">
+        @yield('content')
+    </main>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <footer class="bg-dark text-white pt-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase">À propos de GoTickets</h5>
+                    <p class="small">GoTickets est une plateforme de réservation d'événements locaux, offrant une expérience fluide pour trouver et réserver des billets pour des événements près de chez vous.</p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase">Coordonnées</h5>
+                    <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Quai de Rome 99 , 4000 Liège</p>
+                    <p class="mb-0"><i class="bi bi-telephone-fill me-2"></i>+32 489 47 08 53</p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase">Liens utiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url('/contact') }}" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="{{ url('/terms') }}" class="text-white text-decoration-none">Mentions légales</a></li>
+                        <li><a href="{{ url('/privacy-policy') }}" class="text-white text-decoration-none">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase">Suivez-nous</h5>
+                    <a href="#" class="text-white me-3 fs-4" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3 fs-4" title="Twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3 fs-4" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white fs-4" title="GitHub"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; {{ date('Y') }} GoTickets. Tous droits réservés.</p>
+                    <small><a href="{{ url('/privacy-policy') }}" class="text-white text-decoration-none">Politique de confidentialité</a></small>
+                </div>
+            </div>
         </div>
-    </body>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+</body>
 </html>
