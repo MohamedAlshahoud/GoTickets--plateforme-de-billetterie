@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,6 +24,10 @@ class ContactController extends Controller
             'message' => 'required|min:10',
         ]);
 
+        // Enregistrement en base
+        ContactMessage::create($validated);
+
+        // Envoi d'email
         Mail::send('emails.contact', ['data' => $validated], function ($message) use ($validated) {
             $message->to('alshahoudmohamed95@gmail.com')
                     ->subject('Message du site : ' . $validated['sujet']);
