@@ -15,6 +15,13 @@
                     <div class="alert alert-danger">{{ $error }}</div>
                 @endforeach
 
+                <!-- Message si l'utilisateur est déjà connecté -->
+                @if(Auth::check())
+                    <div class="alert alert-info">
+                        Vous êtes déjà connecté ! <a href="{{ route('login') }}" class="alert-link">Se connecter à nouveau</a>.
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('register') }}" id="registerForm">
                     @csrf
 
@@ -61,7 +68,7 @@
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('password_confirmation');
 
-        if (password.value.length < 6) {
+        if (password.value.length < 8) {
             alert('Le mot de passe doit contenir au moins 6 caractères.');
             password.focus();
             event.preventDefault();
