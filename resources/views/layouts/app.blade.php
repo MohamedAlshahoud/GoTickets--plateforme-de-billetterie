@@ -31,12 +31,11 @@
 
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mon Profil</a>
+                                <a class="nav-link" href="{{ route('profile.edit') }}">Mon Profil</a>
                             </li>
                             <li class="nav-item">
-                                <form action="#" method="POST" class="d-inline">
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                     @csrf
-                                    @method('DELETE')
                                     <button type="submit" class="nav-link btn btn-link">Se déconnecter</button>
                                 </form>
                             </li>
