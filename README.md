@@ -84,3 +84,13 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
    ```bash
    php artisan serve
 
+
+## Licence
+Ce projet est sous la licence MIT.
+
+## Auteur
+- **Mohamed Alshahoud** - Développeur Web Full Stack
+
+---
+
+
