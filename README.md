@@ -33,5 +33,39 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 - [PHP 8.x](https://www.php.net/)
 - [Composer](https://getcomposer.org/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [npm]
+- npm
+
+
+## Installation
+
+### Étapes pour démarrer le projet
+
+1. Clonez le repository :
+   Clonez ce repository sur votre machine locale :
+   
+   ```bash
+   git clone https://github.com/votre-utilisateur/gotickets.git
+   cd gotickets
+
+2. Installer les dépendances avec Composer :
+   Une fois dans le répertoire du projet, installez les dépendances PHP :
+
+   ```bash
+   composer install
+   
+3. Configurer la base de données :
+   Assurez-vous d'avoir une base de données PostgreSQL en cours d'exécution et créez une base de données pour GoTickets :
+
+   ```sql
+   CREATE DATABASE gotickets;
+
+4. Ensuite, configurez les informations de connexion à la base de données dans le fichier .env :
+
+   ```dotenv
+   DB_CONNECTION=pgsql
+   DB_HOST=127.0.0.1
+   DB_PORT=5432
+   DB_DATABASE=gotickets
+   DB_USERNAME=votre_nom_utilisateur
+   DB_PASSWORD=votre_mot_de_passe
 
