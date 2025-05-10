@@ -65,7 +65,7 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
    DB_CONNECTION=pgsql
    DB_HOST=127.0.0.1
    DB_PORT=5432
-   DB_DATABASE=votre_nom_baseDeDonées
+   DB_DATABASE=votre_nom_baseDeDonnées
    DB_USERNAME=votre_nom_utilisateur
    DB_PASSWORD=votre_mot_de_passe
 
