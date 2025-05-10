@@ -16,6 +16,7 @@ GoTickets est une application de billetterie en ligne permettant aux utilisateur
 - **Réservation de billets** : Achetez des billets directement sur la plateforme.
 - **Gestion de compte utilisateur** : Créez et gérez votre compte personnel pour suivre vos réservations et événements préférés.
 - **Authentification sécurisée** : Connexion et inscription avec une gestion sécurisée des sessions.
+- **Interface d’administration** avec Filament (accès réservé aux administrateurs)
 
 
 ## Technologies utilisées
