@@ -24,6 +24,7 @@ GoTickets est une application de billetterie en ligne permettant aux utilisateur
 - **Base de données** : [PostgreSQL](https://www.postgresql.org/)
 - **Frontend** : [Bootstrap](https://getbootstrap.com/) (Framework CSS)
 - **Authentification** : Laravel Breeze
+- **Interface admin** : Filament 3
 - **Sessions** : Laravel session (stockage dans la base de données PostgreSQL)
 
 
