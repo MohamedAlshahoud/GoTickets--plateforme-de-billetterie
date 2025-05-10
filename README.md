@@ -78,3 +78,9 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
    ```bash
    php artisan migrate
 
+
+6. Démarrer le serveur :
+
+   ```bash
+   php artisan serve
+
