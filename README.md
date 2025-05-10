@@ -54,6 +54,7 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 
    ```bash
    composer install
+   npm install && npm run dev
    
 3. Configurer la base de données :
    Assurez-vous d'avoir une base de données PostgreSQL en cours d'exécution et créez une base de données pour GoTickets :
@@ -70,4 +71,10 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
    DB_DATABASE=votre_nom_baseDeDonnées
    DB_USERNAME=votre_nom_utilisateur
    DB_PASSWORD=votre_mot_de_passe
+
+
+5. Lancer les migrations :
+
+   ```bash
+   php artisan migrate
 
