@@ -88,11 +88,13 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 ## Licence
 Ce projet est sous la licence MIT.
 
-## 📫 Me contacter
+
+- ## 📫 Me contacter
 Vous pouvez me joindre directement :
 
 - [LinkedIn](https://www.linkedin.com/in/mohamed-alshahoud/)
 - [Portfolio](https://mohamedalshahoud.com/)
+- [Email](alshahoudmohamed95@gmail.com)
 
 
 ## Auteur
