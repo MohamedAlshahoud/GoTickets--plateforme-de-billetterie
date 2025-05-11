@@ -88,6 +88,11 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 ## Licence
 Ce projet est sous la licence MIT.
 
+## 📫 Me contacter
+Vous pouvez me joindre directement :
+
+- [LinkedIn](https://www.linkedin.com/in/mohamed-alshahoud/)
+
 ## Auteur
 - **Mohamed Alshahoud** - Développeur Web Full Stack
 
