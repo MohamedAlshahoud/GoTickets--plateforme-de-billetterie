@@ -92,6 +92,8 @@ Ce projet est sous la licence MIT.
 Vous pouvez me joindre directement :
 
 - [LinkedIn](https://www.linkedin.com/in/mohamed-alshahoud/)
+- [Portfolio](https://mohamedalshahoud.com/)
+
 
 ## Auteur
 - **Mohamed Alshahoud** - Développeur Web Full Stack
