@@ -1,0 +1,87 @@
+/* Styles pour correspondre aux couleurs de job.be */
+.top-header {
+    background-color: #e9ecef; /* Gris très clair */
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+.top-header .nav-link {
+    color: #495057 !important; /* Gris moyen */
+    padding: 0.5rem 1rem !important;
+}
+
+.top-header .nav-link:hover {
+    color: #0056b3 !important; /* Bleu plus foncé au survol */
+    background-color: transparent !important;
+}
+
+.main-nav {
+    background-color: #fff; /* Blanc */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav .navbar-brand {
+    color: #007bff; /* Bleu principal pour le logo */
+    font-weight: bold;
+}
+
+.main-nav .nav-link {
+    color: #343a40 !important; /* Gris foncé pour les liens principaux */
+    padding: 0.8rem 1rem !important;
+}
+
+.main-nav .nav-link.active {
+    font-weight: bold;
+    color: #007bff !important;
+}
+
+.main-nav .nav-link:hover {
+    color: #0056b3 !important;
+    background-color: transparent !important;
+}
+
+.main-header {
+    background: #f0f8ff; /* Bleu très clair */
+    padding: 30px 0;
+    text-align: center;
+}
+
+.main-header h1 {
+    color: #2e3192; /* Bleu foncé */
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden; /* Empêche le dépassement de la bordure arrondie */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-button {
+    background-color: #007bff; /* Bleu principal pour le bouton */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+}
