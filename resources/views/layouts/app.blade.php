@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -33,6 +34,11 @@
                             <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Créer un compte</a></li>
                         @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-cart-fill me-1"></i>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
