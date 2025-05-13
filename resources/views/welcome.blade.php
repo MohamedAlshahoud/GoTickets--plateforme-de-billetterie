@@ -5,8 +5,32 @@
     <div class="text-center mb-5">
         <h1 class="display-4">Bienvenue sur <span class="text-primary">GoTickets</span> !</h1>
         <p class="lead">Trouvez, explorez et réservez les meilleurs événements près de chez vous.</p>
-        <a href="{{ url('/events') }}" class="btn btn-primary btn-lg mt-3">Voir les événements</a>
     </div>
+    <!-- Événements populaires (Exemple statique ou dynamique plus tard) -->
+    
+    <h1 class="display-4 text-center"> <span class="text-primary">Événements</span> à venir !</h1>
+    @if($events->count())
+        <div class="row">
+            @foreach($events as $event)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $event->title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $event->location }}</h6>
+                            <p class="card-text">{{ $event->description }}</p>
+                            <p class="text-end"><strong>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</strong></p>
+                            <a href="#" class="btn btn-primary w-100 mt-3">
+                                Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @else
+        <p>Aucun événement à venir.</p>
+    @endif
+
 
     <!-- Section mise en avant -->
     <div class="row mb-5">
@@ -27,36 +51,6 @@
         </div>
     </div>
 
-    <!-- Événements populaires (Exemple statique ou dynamique plus tard) -->
-    <h3 class="mb-4">Événements populaires</h3>
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Concert Live - Lyon</h5>
-                    <p class="card-text">Une soirée inoubliable avec les meilleurs artistes locaux.</p>
-                    <a href="{{ url('/events') }}" class="btn btn-outline-primary">Réserver</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Conférence Tech</h5>
-                    <p class="card-text">Les tendances technologiques du moment présentées par des experts.</p>
-                    <a href="{{ url('/events') }}" class="btn btn-outline-primary">Réserver</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Festival Gastronomique</h5>
-                    <p class="card-text">Venez goûter aux saveurs locales et rencontrer les chefs de la région.</p>
-                    <a href="{{ url('/events') }}" class="btn btn-outline-primary">Réserver</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 @endsection
