@@ -17,10 +17,22 @@
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#">FR</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Pour employeurs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Mettez votre CV en ligne</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Jobs sauvegardées</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">|</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">EN</a></li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">Mon Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="nav-link btn btn-link">Se déconnecter</button>
+                                </form>
+                            </li>
+                        @else
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Créer un compte</a></li>
+                        @endauth
                     </ul>
                 </nav>
             </div>
@@ -42,32 +54,16 @@
                         <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Événements</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contactez-nous</a></li>
                     </ul>
-                    <ul class="navbar-nav ms-auto">
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">Mon Profil</a>
-                            </li>
-                            <li class="nav-item">
-                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <button type="submit" class="nav-link btn btn-link">Se déconnecter</button>
-                                </form>
-                            </li>
-                        @else
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Créer un compte</a></li>
-                        @endauth
-                    </ul>
                 </div>
             </div>
         </nav>
         <div class="main-header">
             <div class="container">
-                <h1>À un clic de votre événement local.</h1>
+                <h1>Réservez vos billets pour les événements locaux en quelques clics</h1>
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Quoi ? (Nom de l'événement, artiste...)">
+                    <input type="text" class="search-input" placeholder="Nom de l'événement">
                     <input type="text" class="search-input" placeholder="Où ? (Ville, région...)">
-                    <button class="search-button">Rechercher</button>
+                    <button class="search-button">Rechercher des billets</button>
                 </div>
             </div>
         </div>
