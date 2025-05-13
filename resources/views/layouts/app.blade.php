@@ -58,6 +58,7 @@
                             @endif
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Événements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contactez-nous</a></li>
                     </ul>
                 </div>
