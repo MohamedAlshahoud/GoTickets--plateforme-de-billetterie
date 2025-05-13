@@ -6,20 +6,33 @@
     <title>GoTickets</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="top-header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">FR</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pour employeurs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Mettez votre CV en ligne</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Jobs sauvegardées</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light main-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">GoTickets</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item"><a class="nav-link active" href="{{ url('/') }}">Accueil</a></li>
                         <li class="nav-item">
                             @if(Auth::check() && Auth::user()->role === 'admin')
@@ -27,8 +40,9 @@
                             @endif
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Événements</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
-
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contactez-nous</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
                         @auth
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">Mon Profil</a>
@@ -47,6 +61,17 @@
                 </div>
             </div>
         </nav>
+        <div class="main-header">
+            <div class="container">
+                <h1>À un clic de votre événement local.</h1>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Quoi ? (Nom de l'événement, artiste...)">
+                    <input type="text" class="search-input" placeholder="Où ? (Ville, région...)">
+                    <button class="search-button">Rechercher</button>
+                </div>
+            </div>
+        </div>
+
     </header>
 
     <main class="flex-grow-1 container py-4">
@@ -70,7 +95,7 @@
                 <div class="col-md-3 mb-3">
                     <h5 class="text-uppercase">Liens utiles</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{{ url('/contact') }}" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="{{ url('/contact') }}" class="text-white text-decoration-none">Contactez-nous</a></li>
                         <li><a href="{{ url('/terms') }}" class="text-white text-decoration-none">Mentions légales</a></li>
                         <li><a href="{{ url('/privacy-policy') }}" class="text-white text-decoration-none">Politique de confidentialité</a></li>
                     </ul>
