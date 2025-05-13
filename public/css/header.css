@@ -1,4 +1,4 @@
-/* Styles pour correspondre aux couleurs de job.be */
+/* Styles pour correspondre aux couleurs de job.be (y compris le footer) */
 .top-header {
     background-color: #e9ecef; /* Gris très clair */
     padding: 5px 0;
@@ -84,4 +84,26 @@
 
 .search-button:hover {
     background-color: #0056b3; /* Bleu plus foncé au survol */
+}
+
+/* Style pour le footer */
+.bg-dark {
+    background-color: #343a40 !important; /* Couleur gris foncé standard de Bootstrap pour bg-dark */
+}
+
+.text-white {
+    color: #fff !important; /* Couleur blanche standard de Bootstrap pour text-white */
+}
+
+footer a.text-white:hover {
+    color: #cccccc !important; /* Légèrement plus clair au survol */
+    text-decoration: underline;
+}
+
+footer h5.text-uppercase {
+    color: #fff; /* Titres du footer en blanc */
+}
+
+footer hr.border-secondary {
+    border-top: 1px solid #6c757d; /* Ligne de séparation plus claire */
 }
