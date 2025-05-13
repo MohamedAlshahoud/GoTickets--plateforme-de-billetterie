@@ -70,7 +70,7 @@
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Nom de l'événement">
                     <input type="text" class="search-input" placeholder="Où ? (Ville, région...)">
-                    <button class="search-button">Rechercher des billets</button>
+                    <button class="search-button">Rechercher</button>
                 </div>
             </div>
         </div>
