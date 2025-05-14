@@ -14,7 +14,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         @if($event->image_path)
-                            <img src="{{ asset('storage/events/' . $event->image_path) }}" alt="{{ $event->title }}">
+                            <img src="{{ asset('storage/' . $event->image_path) }}" class="card-img-top" alt="Image de l'événement">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->title }}</h5>
