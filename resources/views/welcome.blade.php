@@ -6,22 +6,22 @@
         <h1 class="display-4">Bienvenue sur <span class="text-primary">GoTickets</span> !</h1>
         <p class="lead">Trouvez, explorez et réservez les meilleurs événements près de chez vous.</p>
     </div>
-    <!-- Événements populaires (Exemple statique ou dynamique plus tard) -->
-    
+
     <h1 class="display-4 text-center"> <span class="text-primary">Événements</span> à venir !</h1>
     @if($events->count())
         <div class="row">
             @foreach($events as $event)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
+                        @if($event->image_path)
+                            <img src="{{ asset('storage/events/' . $event->image_path) }}" alt="{{ $event->title }}">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->title }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ $event->location }}</h6>
                             <p class="card-text">{{ $event->description }}</p>
                             <p class="text-end"><strong>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</strong></p>
-                            <a href="#" class="btn btn-primary w-100 mt-3">
-                                Réserver
-                            </a>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Réserver</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,6 @@
     @else
         <p>Aucun événement à venir.</p>
     @endif
-
 
     <!-- Section mise en avant -->
     <div class="row mb-5">
@@ -50,7 +49,5 @@
             <p>Nous mettons en avant les événements de votre région. Soutenez les initiatives locales en y participant.</p>
         </div>
     </div>
-
-    
 </div>
 @endsection

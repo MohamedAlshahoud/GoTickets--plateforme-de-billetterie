@@ -39,6 +39,13 @@ class EventResource extends Resource
                     ->label('Description')
                     ->nullable()
                     ->rows(4),
+                
+                Forms\Components\FileUpload::make('image_path')
+                    ->label("Image de l'événement")
+                    ->image()
+                    ->directory('events') // stocké dans storage/app/public/events
+                    ->visibility('public')
+                    ->nullable(),
             ]);
     }
 
@@ -51,6 +58,9 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('location')->label('Lieu')->sortable(),
                 Tables\Columns\TextColumn::make('date')->label('Date')->date()->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Créé le')->dateTime()->sortable(),
+                Tables\Columns\ImageColumn::make('image_path')
+                    ->label('Image')
+                    ->disk('public')
             ])
             ->filters([
                 //
