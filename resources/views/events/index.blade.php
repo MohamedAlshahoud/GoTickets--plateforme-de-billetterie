@@ -14,9 +14,7 @@
                             <h6 class="card-subtitle mb-2 text-muted">{{ $event->location }}</h6>
                             <p class="card-text">{{ $event->description }}</p>
                             <p class="text-end"><strong>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</strong></p>
-                            <a href="#" class="btn btn-primary w-100 mt-3">
-                                Réserver
-                            </a>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Réserver</a>
                         </div>
                     </div>
                 </div>

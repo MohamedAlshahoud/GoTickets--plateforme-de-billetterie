@@ -2,24 +2,32 @@
 
 @section('content')
 <div class="container">
+    <!-- Section de bienvenue -->
     <div class="text-center mb-5">
         <h1 class="display-4">Bienvenue sur <span class="text-primary">GoTickets</span> !</h1>
         <p class="lead">Trouvez, explorez et réservez les meilleurs événements près de chez vous.</p>
     </div>
 
-    <h1 class="display-4 text-center"> <span class="text-primary">Événements</span> à venir !</h1>
+    <!-- Titre des événements -->
+    <h2 class="display-4 text-center mb-5"><span class="text-primary">Événements</span> à venir !</h2> <!-- Augmentation de l'espacement ici -->
+
+    <!-- Liste des événements -->
     @if($events->count())
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5"> <!-- Espacement supplémentaire entre la liste et la section mise en avant -->
             @foreach($events as $event)
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-light">
+                        <!-- Image de l'événement -->
                         @if($event->image_path)
-                            <img src="{{ asset('storage/' . $event->image_path) }}" class="event-card-img" alt="Image de l'événement">
+                            <img src="{{ asset('storage/' . $event->image_path) }}" class="card-img-top" alt="Image de l'événement">
+                        @else
+                            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Image de l'événement">
                         @endif
+                        
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->title }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ $event->location }}</h6>
-                            <p class="card-text">{{ $event->description }}</p>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p> <!-- Limitation du texte -->
                             <p class="text-end"><strong>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</strong></p>
                             <a href="#" class="btn btn-primary w-100 mt-3">Réserver</a>
                         </div>
@@ -28,7 +36,7 @@
             @endforeach
         </div>
     @else
-        <p>Aucun événement à venir.</p>
+        <p class="text-center">Aucun événement à venir.</p>
     @endif
 
     <!-- Section mise en avant -->
