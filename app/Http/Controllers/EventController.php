@@ -22,19 +22,23 @@ class EventController extends Controller
     {
         $query = \App\Models\Event::query();
 
-        if ($request->filled('title')) {
-            $query->where('title', 'like', '%' . $request->title . '%');
+        $title = trim($request->input('title'));
+        $location = trim($request->input('location'));
+
+        if (!empty($title)) {
+            $query->where('title', 'ilike', '%' . $title . '%');
         }
 
-        if ($request->filled('location')) {
-            $query->where('location', 'like', '%' . $request->location . '%');
+        if (!empty($location)) {
+            $query->where('location', 'ilike', '%' . $location . '%');
         }
 
-        // Si aucun champ rempli, on retourne tous les événements
+
         $events = $query->latest()->get();
 
         return view('events.search-results', compact('events'));
     }
+
 
 
     /**
