@@ -7,7 +7,7 @@
             <h1>Réservez vos billets pour les événements locaux en quelques clics</h1>
             <form method="GET" action="{{ route('search.events') }}" class="search-container">
                 <input type="text" name="title" class="search-input" placeholder="Nom de l'événement" value="{{ request('title') }}">
-                <input type="text" name="location" class="search-input" placeholder="Où ? (Ville, région...)" value="{{ request('location') }}">
+                <input type="text" name="location" class="search-input" placeholder="Où ? (Location...)" value="{{ request('location') }}">
                 <button type="submit" class="search-button">Rechercher</button>
             </form>
 
