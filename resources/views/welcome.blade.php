@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container">
+    <div class="main-header">
+        <div class="container">
+            <h1>Réservez vos billets pour les événements locaux en quelques clics</h1>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Nom de l'événement">
+                <input type="text" class="search-input" placeholder="Où ? (Ville, région...)">
+                <button class="search-button">Rechercher</button>
+            </div>
+        </div>
+    </div>
     <!-- Section de bienvenue -->
     <div class="text-center mb-5">
         <h1 class="display-4">Bienvenue sur <span class="text-primary">GoTickets</span> !</h1>
