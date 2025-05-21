@@ -65,16 +65,6 @@
                 </div>
             </div>
         </nav>
-        <div class="main-header">
-            <div class="container">
-                <h1>Réservez vos billets pour les événements locaux en quelques clics</h1>
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Nom de l'événement">
-                    <input type="text" class="search-input" placeholder="Où ? (Ville, région...)">
-                    <button class="search-button">Rechercher</button>
-                </div>
-            </div>
-        </div>
 
     </header>
 
