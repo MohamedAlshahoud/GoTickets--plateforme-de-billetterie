@@ -29,7 +29,15 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+// routes/web.php
+
+Route::middleware('auth')->group(function () {
+    Route::post('/cart/add/{event}', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/update/{item}', [CartController::class, 'update'])->name('cart.update');
+    Route::post('/cart/remove/{item}', [CartController::class, 'remove'])->name('cart.remove');
+});
+
 
 
 require __DIR__.'/auth.php';

@@ -35,11 +35,22 @@
                             <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Se connecter</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Créer un compte</a></li>
                         @endauth
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item position-relative">
+                            <a class="nav-link" href="{{ route('cart.index') }}">
                                 <i class="bi bi-cart-fill me-1"></i>
+                                @auth
+                                    @php
+                                        $cartCount = \App\Models\CartItem::where('user_id', auth()->id())->sum('quantity');
+                                    @endphp
+                                    @if($cartCount > 0)
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            {{ $cartCount }}
+                                        </span>
+                                    @endif
+                                @endauth
                             </a>
                         </li>
+
                     </ul>
                 </nav>
             </div>
