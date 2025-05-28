@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CartItem;
 use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -14,7 +12,6 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         return view('cart.index', compact('cart'));
     }
-
 
     public function add(Request $request, $eventId)
     {
@@ -30,6 +27,7 @@ class CartController extends Controller
                 "date" => $event->date,
                 "location" => $event->location,
                 "image" => $event->image_path,
+                "price" => $event->price,    // <-- Ajout du prix ici
                 "quantity" => 1
             ];
         }
@@ -38,7 +36,6 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Événement ajouté au panier !');
     }
-
 
     public function update(Request $request, $itemId)
     {
@@ -52,7 +49,6 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Quantité mise à jour.');
     }
 
-
     public function remove($itemId)
     {
         $cart = session()->get('cart');
@@ -64,6 +60,4 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Événement supprimé du panier.');
     }
-
 }
-
