@@ -22,7 +22,7 @@ GoTickets est une application de billetterie en ligne développée avec **Larave
 ## Technologies utilisées
 - **Backend** : [Laravel](https://laravel.com/) (Framework PHP)
 - **Base de données** : [PostgreSQL](https://www.postgresql.org/)
-- **Frontend** : [Bootstrap](https://getbootstrap.com/) (Framework CSS)
+- **Frontend** : [Bootstrap](https://getbootstrap.com/) (Framework CSS), [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
 - **Authentification** : Laravel Breeze
 - **Interface admin** : Filament 3
 - **Sessions** : Laravel session (stockage dans la base de données PostgreSQL)
