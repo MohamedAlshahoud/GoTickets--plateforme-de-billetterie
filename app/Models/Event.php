@@ -15,6 +15,8 @@ class Event extends Model
         'location',
         'date',
         'description',
+        'price',
         'image_path',
+        
     ];
 }

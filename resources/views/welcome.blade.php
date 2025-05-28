@@ -39,10 +39,16 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->title }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ $event->location }}</h6>
-                            <p class="card-text">{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p> <!-- Limitation du texte -->
-                            <p class="text-end"><strong>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</strong></p>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</span>
+                                <span class="fw-bold text-success">{{ number_format($event->price, 2) }} €</span>
+                            </div>
+                            
                             <a href="{{ route('events.show', $event->id) }}" class="btn btn-primary w-100 mt-3">Réserver</a>
                         </div>
+
                     </div>
                 </div>
             @endforeach

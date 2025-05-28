@@ -39,7 +39,12 @@ class EventResource extends Resource
                     ->label('Description')
                     ->nullable()
                     ->rows(4),
-                
+                Forms\Components\TextInput::make('price')
+                    ->label('Prix (€)')
+                    ->numeric()
+                    ->step(0.01)
+                    ->minValue(0)
+                    ->required(),
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Image de l\'événement')
                     ->image()
@@ -58,6 +63,7 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('title')->label('Titre')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('location')->label('Lieu')->sortable(),
                 Tables\Columns\TextColumn::make('date')->label('Date')->date()->sortable(),
+                Tables\Columns\TextColumn::make('price')->label('Prix')->money('eur')->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Créé le')->dateTime()->sortable(),
             ])
             ->filters([
