@@ -18,11 +18,6 @@
                                 <i class="bi bi-cart-check-fill"></i> Vos commandes
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="bi bi-geo-alt-fill"></i> Vos adresses
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
