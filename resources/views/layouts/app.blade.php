@@ -18,9 +18,6 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">FR</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">|</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">EN</a></li>
                         @auth
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">Mon Profil</a>
