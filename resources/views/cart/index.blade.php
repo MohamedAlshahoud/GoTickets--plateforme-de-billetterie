@@ -1,23 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Mon panier</h1>
+<div class="container mt-5">
+    <h2>Mon Panier</h2>
 
-    @forelse ($items as $item)
-        <div>
-            <strong>{{ $item->event->title }}</strong><br>
-            Quantité: 
-            <form action="{{ route('cart.update', $item) }}" method="POST">
-                @csrf
-                <input type="number" name="quantity" value="{{ $item->quantity }}" min="1">
-                <button type="submit">Mettre à jour</button>
-            </form>
-            <form action="{{ route('cart.remove', $item) }}" method="POST" style="display:inline;">
-                @csrf
-                <button type="submit">Retirer</button>
-            </form>
-        </div>
-    @empty
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @if(count($cart))
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Événement</th>
+                    <th>Lieu</th>
+                    <th>Date</th>
+                    <th>Quantité</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($cart as $id => $item)
+                    <tr>
+                        <td>{{ $item['title'] }}</td>
+                        <td>{{ $item['location'] }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item['date'])->format('d/m/Y') }}</td>
+                        <td>{{ $item['quantity'] }}</td>
+                        <td>
+                            <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
         <p>Votre panier est vide.</p>
-    @endforelse
+    @endif
+</div>
 @endsection

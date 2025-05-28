@@ -11,43 +11,59 @@ class CartController extends Controller
 {
     public function index()
     {
-        $items = CartItem::with('event')->where('user_id', auth()->id())->get();
-        return view('cart.index', compact('items'));
+        $cart = session()->get('cart', []);
+        return view('cart.index', compact('cart'));
     }
 
-    public function add(Request $request, Event $event)
-    {
-        $item = CartItem::where('user_id', auth()->id())
-            ->where('event_id', $event->id)
-            ->first();
 
-        if ($item) {
-            $item->quantity += 1;
-            $item->save();
+    public function add(Request $request, $eventId)
+    {
+        $event = Event::findOrFail($eventId);
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$eventId])) {
+            $cart[$eventId]['quantity']++;
         } else {
-            CartItem::create([
-                'user_id' => auth()->id(),
-                'event_id' => $event->id,
-                'quantity' => 1,
-            ]);
+            $cart[$eventId] = [
+                "title" => $event->title,
+                "date" => $event->date,
+                "location" => $event->location,
+                "image" => $event->image_path,
+                "quantity" => 1
+            ];
         }
 
-        return redirect()->route('cart.index')->with('success', 'Événement ajouté au panier.');
+        session()->put('cart', $cart);
+
+        return redirect()->route('cart.index')->with('success', 'Événement ajouté au panier !');
     }
 
-    public function update(Request $request, CartItem $item)
+
+    public function update(Request $request, $itemId)
     {
-        $item->update([
-            'quantity' => $request->input('quantity'),
-        ]);
+        $cart = session()->get('cart');
 
-        return back()->with('success', 'Quantité mise à jour.');
+        if (isset($cart[$itemId])) {
+            $cart[$itemId]['quantity'] = $request->quantity;
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Quantité mise à jour.');
     }
 
-    public function remove(CartItem $item)
+
+    public function remove($itemId)
     {
-        $item->delete();
-        return back()->with('success', 'Événement supprimé du panier.');
+        $cart = session()->get('cart');
+
+        if (isset($cart[$itemId])) {
+            unset($cart[$itemId]);
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Événement supprimé du panier.');
     }
+
 }
 
