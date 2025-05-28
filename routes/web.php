@@ -16,6 +16,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
+Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
+
 Route::get('/search', [EventController::class, 'search'])->name('search.events');
 
 Route::middleware('auth')->group(function () {
