@@ -55,9 +55,8 @@
         </table>
 
         <h4 class="text-end">Total à payer : {{ number_format($grandTotal, 2) }} €</h4>
--+-+-+-+-+-+-+-+-+-+-+
-        <div class="d-flex justify-content-between mt-4">
 
+        <div class="d-flex justify-content-between mt-4">
             <a href="{{ url('/') }}" class="btn btn-secondary">Continuer vos réservations</a>
             <a href="{{ route('checkout.index') }}" class="btn btn-success">Passer la commande</a>
         </div>
