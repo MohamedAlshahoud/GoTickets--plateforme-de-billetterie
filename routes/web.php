@@ -40,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/remove/{item}', [CartController::class, 'remove'])->name('cart.remove');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/confirm', [\App\Http\Controllers\CheckoutController::class, 'confirm'])->name('checkout.confirm');
+});
 
 
 
