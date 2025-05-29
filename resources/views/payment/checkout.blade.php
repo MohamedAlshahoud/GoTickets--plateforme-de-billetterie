@@ -4,8 +4,6 @@
 <div class="container mt-5">
     <h2>Commande #{{ $order->id }} - Paiement</h2>
 
-    <p>Merci pour votre réservation ! Voici un récapitulatif :</p>
-
     <ul class="list-group mb-3">
         @foreach ($order->orderItems as $item)
             <li class="list-group-item d-flex justify-content-between">
@@ -21,10 +19,9 @@
 
     <h4>Total à payer : {{ number_format($order->total_price, 2) }} €</h4>
 
-    <form action="{{ route('payment.confirm', $order->id) }}" method="POST">
+    <form action="{{ route('stripe.session', $order->id) }}" method="POST">
         @csrf
-        <button class="btn btn-primary">Payer maintenant</button>
+        <button type="submit" class="btn btn-primary">Payer</button>
     </form>
-
 </div>
 @endsection

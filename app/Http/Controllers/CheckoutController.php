@@ -48,7 +48,8 @@ class CheckoutController extends Controller
         // Vider le panier
         session()->forget('cart');
 
-        return redirect()->route('checkout.payment', ['order' => $order->id]);
+        return redirect()->route('stripe.checkout', $order->id);
+
     }
 
 
