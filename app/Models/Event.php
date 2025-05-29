@@ -19,4 +19,11 @@ class Event extends Model
         'image_path',
         
     ];
+
+
+    // Relation avec OrderItem
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }
