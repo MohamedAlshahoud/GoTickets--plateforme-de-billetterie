@@ -9,12 +9,12 @@
                 <div class="dashboard_menu">
                     <ul class="nav nav-tabs flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">
+                            <a class="nav-link {{ request()->routeIs('profile.edit') ? 'active' : '' }}" href="{{ route('profile.edit') }}">
                                 <i class="fas fa-user"></i> Détails du compte
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link {{ request()->routeIs('profile.orders') ? 'active' : '' }}" href="{{ route('profile.orders') }}">
                                 <i class="bi bi-cart-check-fill"></i> Vos commandes
                             </a>
                         </li>

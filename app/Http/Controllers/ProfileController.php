@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -57,4 +58,20 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+
+    public function orders(): View
+    {
+        $orders = Auth::user()
+            ->orders()
+            ->with('orderItems.event')
+            ->latest()
+            ->get();
+
+        return view('profile.orders', compact('orders'));
+    }
+
+
 }
+
+
