@@ -49,17 +49,32 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        $session = StripeSession::retrieve($request->get('session_id'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $session = \Stripe\Checkout\Session::retrieve($request->get('session_id'));
 
         $orderId = $session->metadata->order_id;
-        $order = Order::findOrFail($orderId);
+        $order = \App\Models\Order::findOrFail($orderId);
+
+        // 🔍 Debug avant mise à jour
+        \Log::info('Paiement réussi reçu', [
+            'session_id' => $session->id,
+            'order_id' => $orderId,
+            'ancien_statut' => $order->status,
+        ]);
 
         $order->update(['status' => 'paid']);
+
+        // 🔍 Debug après mise à jour
+        \Log::info('Statut après update', [
+            'nouveau_statut' => $order->fresh()->status
+        ]);
+
         session()->forget('cart');
 
         return view('payment.success', compact('order'));
     }
+
 
     public function cancel()
     {
