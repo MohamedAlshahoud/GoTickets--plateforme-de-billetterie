@@ -15,6 +15,7 @@
                     <th>Statut</th>
                     <th>Articles</th>
                     <th>Total (€)</th>
+                    <th>Actions</th> <!-- Colonne pour le bouton -->
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +39,9 @@
                     </td>
                     <td>
                         {{ number_format($order->orderItems->sum(fn($item) => $item->price * $item->quantity), 2) }} €
+                    </td>
+                    <td>
+                        <a href="{{ route('profile.orders.show', $order->id) }}" class="btn btn-sm btn-primary">Voir</a>
                     </td>
                 </tr>
                 @endforeach

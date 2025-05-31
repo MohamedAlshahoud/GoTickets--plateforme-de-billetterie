@@ -71,6 +71,13 @@ class ProfileController extends Controller
         return view('profile.orders', compact('orders'));
     }
 
+    public function showOrder($orderId): View
+    {
+        $order = Auth::user()->orders()->with('orderItems.event')->findOrFail($orderId);
+
+        return view('profile.order_show', compact('order'));
+    }
+
 
 }
 
