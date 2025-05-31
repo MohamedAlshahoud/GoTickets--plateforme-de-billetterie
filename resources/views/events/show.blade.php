@@ -14,6 +14,7 @@
             <h2>{{ $event->title }}</h2>
             <p><strong>Lieu :</strong> {{ $event->location }}</p>
             <p><strong>Date :</strong> {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</p>
+            <p><strong>Prix :</strong> {{ number_format($event->price, 2) }} €</p>
             <p>{{ $event->description }}</p>
 
             <form method="POST" action="{{ route('cart.add', $event->id) }}">
