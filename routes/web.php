@@ -58,4 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 });
 
+
+Route::view('/apropos', 'apropos')->name('apropos');
+
+
 require __DIR__.'/auth.php';
