@@ -63,5 +63,7 @@ Route::view('/apropos', 'apropos')->name('apropos');
 
 Route::get('/liste-evenements', [EventController::class, 'list'])->name('events.list');
 
+Route::post('/cart/update-quantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
+
 
 require __DIR__.'/auth.php';

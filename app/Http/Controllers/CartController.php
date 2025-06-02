@@ -37,6 +37,28 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Événement ajouté au panier !');
     }
 
+    public function updateQuantity(Request $request)
+    {
+        $itemId = $request->input('item_id');
+        $quantity = $request->input('quantity');
+
+        // Ici, tu devrais récupérer le panier en session ou depuis la BDD selon ton implémentation
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$itemId])) {
+            $cart[$itemId]['quantity'] = max(1, (int) $quantity); // On s'assure que quantité >= 1
+            session()->put('cart', $cart);
+
+            return response()->json([
+                'success' => true,
+                'new_quantity' => $cart[$itemId]['quantity']
+            ]);
+        }
+
+        return response()->json(['success' => false], 400);
+    }
+
+
     public function update(Request $request, $itemId)
     {
         $cart = session()->get('cart');
@@ -60,4 +82,6 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Événement supprimé du panier.');
     }
+
+    
 }
