@@ -61,5 +61,7 @@ Route::middleware('auth')->group(function () {
 
 Route::view('/apropos', 'apropos')->name('apropos');
 
+Route::get('/liste-evenements', [EventController::class, 'list'])->name('events.list');
+
 
 require __DIR__.'/auth.php';

@@ -66,7 +66,9 @@
                                 <a class="nav-link" href="{{ url('/dashboard') }}">Admin</a>
                             @endif
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Événements</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('events.list') }}">Evénements</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('apropos') ? 'active text-primary' : '' }}" href="{{ route('apropos') }}">À propos</a>
                         </li>

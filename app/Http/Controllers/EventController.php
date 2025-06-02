@@ -18,6 +18,13 @@ class EventController extends Controller
     }
 
 
+    public function list()
+    {
+        $events = Event::orderBy('date', 'asc')->get();
+        return view('events.list', compact('events'));
+    }
+
+
     public function search(Request $request)
     {
         $query = \App\Models\Event::query();
