@@ -1,33 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mb-6 text-sm text-gray-700">
-        Merci pour ton inscription ! <br>
-        Avant de commencer, confirme ton adresse email en cliquant sur le lien que nous venons de t’envoyer.
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <div class="shadow-sm p-5 bg-light rounded border">
 
-        <br><br>
-        Si tu n’as pas reçu l’email, clique sur le bouton ci-dessous pour en recevoir un nouveau.
-    </div>
+                <h1 class="text-center mb-4">📩 Vérification de l’adresse email</h1>
 
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            ✅ Un nouveau lien de vérification a été envoyé à ton adresse email.
+                <p class="text-muted mb-4">
+                    Merci pour ton inscription ! Avant de commencer, confirme ton adresse email en cliquant sur le lien que nous venons de t’envoyer.
+                </p>
+
+                <p class="text-muted">
+                    Si tu n’as pas reçu l’email, clique sur le bouton ci-dessous pour en recevoir un nouveau.
+                </p>
+
+                @if (session('status') == 'verification-link-sent')
+                    <div class="alert alert-success mt-4" role="alert">
+                        ✅ Un nouveau lien de vérification a été envoyé à ton adresse email.
+                    </div>
+                @endif
+
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 gap-3">
+                    <form method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-primary px-4">
+                            Renvoyer l'email de vérification
+                        </button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-    @endif
-
-    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
-            <x-primary-button>
-                Renvoyer l'email de vérification
-            </x-primary-button>
-        </form>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md">
-                Se déconnecter
-            </button>
-        </form>
     </div>
+</div>
 @endsection
