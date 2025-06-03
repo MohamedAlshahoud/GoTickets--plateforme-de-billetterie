@@ -1,4 +1,6 @@
-<x-guest-layout>
+@extends('layouts.app')
+
+@section('content')
     <div class="mb-6 text-sm text-gray-700">
         Merci pour ton inscription ! <br>
         Avant de commencer, confirme ton adresse email en cliquant sur le lien que nous venons de t’envoyer.
@@ -28,4 +30,4 @@
             </button>
         </form>
     </div>
-</x-guest-layout>
+@endsection
