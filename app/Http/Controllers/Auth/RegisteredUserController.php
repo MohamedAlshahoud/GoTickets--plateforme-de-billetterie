@@ -44,10 +44,11 @@ class RegisteredUserController extends Controller
         // Déclenche l'envoi de l'email de vérification
         event(new Registered($user));
 
-        // ✅ Connexion automatique de l'utilisateur
-        Auth::login($user);
+        // Ne pas connecter automatiquement l'utilisateur
+        // Auth::login($user);
 
-        // ✅ Redirection vers la page "verify-email"
+        // Redirection vers la page "vérifier votre email"
         return redirect()->route('verification.notice');
     }
+
 }
