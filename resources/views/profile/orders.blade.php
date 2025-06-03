@@ -6,6 +6,10 @@
 
     @if($orders->isEmpty())
         <p>Vous n'avez aucune commande pour le moment.</p>
+
+        <a href="{{ route('profile.edit') }}" class="btn btn-outline-primary mt-3">
+            Retour à mon profil
+        </a>
     @else
         <table class="table table-bordered">
             <thead>
@@ -15,7 +19,7 @@
                     <th>Statut</th>
                     <th>Articles</th>
                     <th>Total (€)</th>
-                    <th>Actions</th> <!-- Colonne pour le bouton -->
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
