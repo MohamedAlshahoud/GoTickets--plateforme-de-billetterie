@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -40,12 +41,13 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Déclenche l'envoi de l'email de vérification
         event(new Registered($user));
 
-        // ❌ Suppression de la connexion automatique
-        // Auth::login($user);
+        // ✅ Connexion automatique de l'utilisateur
+        Auth::login($user);
 
-        // ✅ Redirection vers la page de login avec message
-        return redirect()->route('login')->with('status', 'Compte créé avec succès. Veuillez vous connecter.');
+        // ✅ Redirection vers la page "verify-email"
+        return redirect()->route('verification.notice');
     }
 }

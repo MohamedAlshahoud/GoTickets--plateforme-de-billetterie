@@ -28,8 +28,17 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (! $request->user()->hasVerifiedEmail()) {
+            Auth::logout();
+
+            return redirect()->route('login')->withErrors([
+                'email' => 'Vous devez vérifier votre adresse email avant de vous connecter.',
+            ]);
+        }
+
         return redirect()->intended(route('profile.edit', absolute: false));
     }
+
 
     /**
      * Destroy an authenticated session.
