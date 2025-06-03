@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
             ]);
         }
 
-        return redirect()->intended(route('profile.edit', absolute: false));
+        return redirect()->route('profile.edit');
     }
 
 
