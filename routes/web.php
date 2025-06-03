@@ -65,5 +65,9 @@ Route::get('/liste-evenements', [EventController::class, 'list'])->name('events.
 
 Route::post('/cart/update-quantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
 
+Route::get('/email/verified', function () {
+    return view('auth.email-verified');
+})->middleware(['auth'])->name('verification.confirmed');
+
 
 require __DIR__.'/auth.php';

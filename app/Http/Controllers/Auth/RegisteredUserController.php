@@ -41,14 +41,14 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Déclenche l'envoi de l'email de vérification
         event(new Registered($user));
 
-        // Ne pas connecter automatiquement l'utilisateur
-        // Auth::login($user);
+        // ✅ Connecte l'utilisateur pour accéder à verification.notice
+        Auth::login($user);
 
-        // Redirection vers la page "vérifier votre email"
+        // ✅ Redirige vers la page de vérification d'e-mail
         return redirect()->route('verification.notice');
     }
+
 
 }
