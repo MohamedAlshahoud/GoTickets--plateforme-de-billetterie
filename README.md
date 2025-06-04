@@ -86,7 +86,7 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 
 
 ## Licence
-Ce projet est sous la licence MIT.
+Ce projet est sous la licence **MIT**.
 
 
 - ## 📫 Me contacter
