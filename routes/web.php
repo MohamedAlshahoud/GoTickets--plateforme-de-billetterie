@@ -17,9 +17,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
-Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/search', [EventController::class, 'search'])->name('events.search');
 
-Route::get('/search', [EventController::class, 'search'])->name('search.events');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

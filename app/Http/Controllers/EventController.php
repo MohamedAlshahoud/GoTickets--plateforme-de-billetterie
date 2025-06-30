@@ -41,7 +41,7 @@ class EventController extends Controller
         }
 
 
-        $events = $query->latest()->get();
+        $events = $query->orderBy('date', 'asc')->get();
 
         return view('events.search-results', compact('events'));
     }
