@@ -9,7 +9,7 @@
 
 # GoTickets - Plateforme de billetterie pour événements locaux
 
-GoTickets est une application de billetterie en ligne développée avec **Laravel 12** permettant aux utilisateurs de découvrir, réserver et gérer des billets pour des événements locaux. Le site est conçu pour être simple, rapide et sécurisé, tout en offrant une interface fluide pour une meilleure expérience utilisateur.
+GoTickets est une **plateforme de billetterie** en ligne développée avec **Laravel 12** permettant aux utilisateurs de **découvrir**, **réserver** et **gérer des billets** pour des **événements locaux**. Le site est conçu pour être simple, rapide et sécurisé, tout en offrant une interface fluide pour une meilleure expérience utilisateur.
 
 ## Fonctionnalités principales
 - **Découverte d'événements locaux** : Explorez des événements dans votre région (concerts, festivals, conférences, etc.).
@@ -86,7 +86,7 @@ Avant de démarrer, assurez-vous d'avoir les outils suivants installés :
 
 
 ## Licence
-Ce projet est sous la licence MIT.
+Ce projet est sous la licence **MIT**.
 
 
 - ## 📫 Me contacter
