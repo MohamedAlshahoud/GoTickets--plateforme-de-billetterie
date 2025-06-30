@@ -36,9 +36,5 @@
             </p>
         </div>
     </div>
-
-    <div class="text-center mt-5">
-        <a href="{{ route('events.index') }}" class="btn btn-primary px-4 py-2">Parcourir les événements</a>
-    </div>
 </div>
 @endsection
