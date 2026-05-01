@@ -30,7 +30,7 @@ GoTickets est une **plateforme de billetterie** en ligne développée avec **Lar
 
 ## Prérequis
 
-**Avant de démarrer**, assurez-vous d'avoir les outils suivants installés :
+**Avant de démarrer**, assurez-vous d'avoir **les outils** suivants installés :
 
 - [PHP 8.x](https://www.php.net/)
 - [Composer](https://getcomposer.org/)
